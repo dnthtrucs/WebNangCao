@@ -5,12 +5,15 @@ Hệ thống quản lý rạp chiếu phim được xây dựng bằng Laravel, 
 - Khách hàng: Đặt vé, thanh toán vé trực tuyến.
 - Quản trị viên: Quản lý phim, suất chiếu, vé và báo cáo doanh thu.
 ### Chức năng chính
-- Quản lý phim, suất chiếu, rạp chiếu.
-- Đặt vé trực tuyến với lựa chọn ghế ngồi.
-- Thanh toán vé bằng MoMo và VNPAY.
-- Hủy vé nếu chưa thanh toán.
-- Xác nhận thanh toán và cập nhật trạng thái vé.
-- Quản lý người dùng và phân quyền.
+•	Đối với khách hàng:
+-	Xem danh sách phim, suất chiếu, thông tin rạp.
+-	Đặt vé trực tuyến, chọn rạp.
+-	Thanh toán vé
+-	Kiểm tra và hủy vé (nếu chưa thanh toán).
+•	Đối với quản lý rạp:
+-	Thêm, sửa, xóa phim, lịch chiếu, phòng chiếu.
+-	Quản lý đặt vé, theo dõi doanh thu.
+-	Xử lý các yêu cầu thanh toán và hủy vé.
 
 ### Công nghệ sử dụng
 - Laravel (Framework PHP)
