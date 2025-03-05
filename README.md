@@ -58,3 +58,10 @@ php artisan migrate --seed
 - Cải thiện giao diện UI/UX để nâng cao trải nghiệm người dùng.
 - Tích hợp thêm cổng thanh toán để đa dạng lựa chọn thanh toán.
 - Mở rộng API để kết nối với ứng dụng di động trong tương lai.
+
+
+### Link
+- Link repo: https://github.com/dnthtrucs/WebNangCao/tree/main
+- Link demo: https://drive.google.com/drive/home
+- Link web public: http://172.20.10.6:8000
+
