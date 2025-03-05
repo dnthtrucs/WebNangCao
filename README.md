@@ -1,1 +1,57 @@
+## Cinema
+### Giới thiệu
+Hệ thống quản lý rạp chiếu phim được xây dựng bằng Laravel, giúp người dùng dễ dàng đặt vé, thanh toán và quản lý lịch chiếu phim. Ứng dụng hỗ trợ hai loại người dùng chính:
 
+- Khách hàng: Đặt vé, thanh toán vé trực tuyến.
+- Quản trị viên: Quản lý phim, suất chiếu, vé và báo cáo doanh thu.
+### Chức năng chính
+- Quản lý phim, suất chiếu, rạp chiếu.
+- Đặt vé trực tuyến với lựa chọn ghế ngồi.
+- Thanh toán vé bằng MoMo và VNPAY.
+- Hủy vé nếu chưa thanh toán.
+- Xác nhận thanh toán và cập nhật trạng thái vé.
+- Quản lý người dùng và phân quyền.
+
+### Công nghệ sử dụng
+- Laravel (Framework PHP)
+- MySQL (Cơ sở dữ liệu)
+- Bootstrap (Giao diện)
+- MoMo & VNPAY API (Thanh toán)
+### Cài đặt & Chạy dự án
+1️⃣ Clone repo:
+git clone https://github.com/dnthtrucs/WebNangCao.git
+cd cinema
+2️⃣ Cấu hình môi trường:
+
+- Copy file .env.example thành .env
+- Cập nhật thông tin DB, MoMo, VNPAY trong .env
+3️⃣ Cài đặt dependencies:
+
+composer install
+npm install
+4️⃣ Tạo database & chạy migration:
+
+php artisan migrate --seed
+5️⃣ Chạy ứng dụng:
+
+php artisan serve
+Mở trình duyệt và truy cập: http://172.20.10.6:8000
+
+### Cấu trúc dự án
+/app
+  ├── Models        # Định nghĩa mô hình dữ liệu
+  ├── Http
+      ├── Controllers  # Controller xử lý logic
+      ├── Middleware   # Middleware bảo mật
+/resources
+  ├── views         # Giao diện (Blade templates)
+/routes
+  ├── web.php       # Định tuyến web
+/database
+  ├── migrations    # Cấu trúc DB
+### Hướng phát triển
+•	Tích hợp AI để gợi ý phim theo sở thích người dùng.
+•	Xây dựng hệ thống thành viên, cung cấp ưu đãi và tích điểm.
+•	Cải thiện giao diện UI/UX để nâng cao trải nghiệm người dùng.
+•	Tích hợp thêm cổng thanh toán để đa dạng lựa chọn thanh toán.
+•	Mở rộng API để kết nối với ứng dụng di động trong tương lai.
