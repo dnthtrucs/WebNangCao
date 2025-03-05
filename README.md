@@ -21,24 +21,24 @@ Hệ thống quản lý rạp chiếu phim được xây dựng bằng Laravel, 
 - Bootstrap (Giao diện)
 - MoMo & VNPAY API (Thanh toán)
 ### Cài đặt & Chạy dự án
-1️⃣ Clone repo:
+1. Clone repo:
 git clone https://github.com/dnthtrucs/WebNangCao.git
 cd cinema
-2️⃣ Cấu hình môi trường:
+2. Cấu hình môi trường:
 
 - Copy file .env.example thành .env
 - Cập nhật thông tin DB, MoMo, VNPAY trong .env
-3️⃣ Cài đặt dependencies:
+3. Cài đặt dependencies:
 
-composer install
-npm install
-4️⃣ Tạo database & chạy migration:
+- composer install
+- npm install
+4. Tạo database & chạy migration:
 
 php artisan migrate --seed
-5️⃣ Chạy ứng dụng:
+5. Chạy ứng dụng:
 
-php artisan serve
-Mở trình duyệt và truy cập: http://172.20.10.6:8000
+- php artisan serve
+- Mở trình duyệt và truy cập: http://172.20.10.6:8000
 
 ### Cấu trúc dự án
 /app
@@ -53,8 +53,8 @@ Mở trình duyệt và truy cập: http://172.20.10.6:8000
 /database
   ├── migrations    # Cấu trúc DB
 ### Hướng phát triển
-•	Tích hợp AI để gợi ý phim theo sở thích người dùng.
-•	Xây dựng hệ thống thành viên, cung cấp ưu đãi và tích điểm.
-•	Cải thiện giao diện UI/UX để nâng cao trải nghiệm người dùng.
-•	Tích hợp thêm cổng thanh toán để đa dạng lựa chọn thanh toán.
-•	Mở rộng API để kết nối với ứng dụng di động trong tương lai.
+- Tích hợp AI để gợi ý phim theo sở thích người dùng.
+- Xây dựng hệ thống thành viên, cung cấp ưu đãi và tích điểm.
+- Cải thiện giao diện UI/UX để nâng cao trải nghiệm người dùng.
+- Tích hợp thêm cổng thanh toán để đa dạng lựa chọn thanh toán.
+- Mở rộng API để kết nối với ứng dụng di động trong tương lai.
