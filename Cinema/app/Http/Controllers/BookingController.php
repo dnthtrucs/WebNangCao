@@ -89,4 +89,14 @@ class BookingController extends Controller
 
         return redirect()->route('bookings.index')->with('error', 'Không thể hủy vé đã thanh toán.');
     }
+    public function payment($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        if ($booking->status == 'Đã đặt') {
+            return redirect()->route('payment.gateway', ['booking_id' => $booking->id]);
+        }
+
+        return redirect()->route('bookings.index')->with('error', 'Vé đã thanh toán hoặc không hợp lệ.');
+    }
 }

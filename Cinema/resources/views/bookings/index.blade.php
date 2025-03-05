@@ -51,7 +51,7 @@
                         </td>
                         <td>
                             @if($booking->status == 'Đã đặt')
-                                <a href="{{ route('bookings.payment', $booking->id) }}" class="btn btn-primary">Thanh toán</a>
+                                <a href="{{ route('payment.gateway', ['booking' => $booking->id]) }}" class="btn btn-primary">Thanh toán</a>
                             @elseif($booking->status == 'Đã thanh toán')
                                 <button class="btn btn-success" disabled>Đã thanh toán</button>
                             @endif

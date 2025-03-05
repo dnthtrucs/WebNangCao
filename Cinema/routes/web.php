@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\PaymentController;
 
 
 // Trang chủ
@@ -32,12 +33,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 
-    Route::get('/bookings/{id}/pay/momo', [BookingController::class, 'payWithMoMo'])->name('bookings.pay.momo');
-    Route::get('/bookings/{id}/pay/vnpay', [BookingController::class, 'payWithVNPAY'])->name('bookings.pay.vnpay');
-
-
     Route::put('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
     Route::get('/bookings/{id}/payment', [BookingController::class, 'payment'])->name('bookings.payment');
+    Route::get('/payment/{booking}', [PaymentController::class, 'processPayment'])->name('payment.gateway');
 
 });
 
