@@ -30,7 +30,7 @@ class BookingController extends Controller
     {
         $movies = Movie::all();
         $cinemas = Cinema::all();
-        $tickets = Ticket::all();
+        $tickets = Ticket::all(); // Lấy danh sách tất cả vé (thường & VIP)
 
         return view('bookings.create', compact('movies', 'cinemas', 'tickets'));
     }
@@ -51,13 +51,16 @@ class BookingController extends Controller
             'quantity' => 'required|integer|min:1'
         ]);
 
-        // Kiểm tra nếu vé tồn tại
+        // Lấy thông tin vé từ database
         $ticket = Ticket::find($request->ticket_id);
         if (!$ticket) {
             return redirect()->back()->with('error', 'Vé không tồn tại.');
         }
 
-        // Tính tổng tiền
+        // Kiểm tra loại vé: Thường hoặc VIP
+        $ticketType = $ticket->type; // Ví dụ: "Thường" hoặc "VIP"
+
+        // Tính tổng tiền theo loại vé
         $total_price = $ticket->price * $request->quantity;
 
         // Lưu đặt vé vào database
@@ -67,7 +70,8 @@ class BookingController extends Controller
             'cinema_id' => $request->cinema_id,
             'ticket_id' => $request->ticket_id,
             'quantity' => $request->quantity,
-            'total_price' => $total_price
+            'total_price' => $total_price,
+            'ticket_type' => $ticketType, // Lưu loại vé vào bảng đặt vé
         ]);
 
         return redirect()->route('bookings.index')->with('success', 'Đặt vé thành công!');

@@ -9,20 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('bookings', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-        $table->foreignId('cinema_id')->constrained()->onDelete('cascade');
-        $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
-        $table->integer('quantity');
-        $table->decimal('total_price', 10, 2);
-        $table->timestamps();
-    });
-}
-
+    public function up(): void
+    {
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('movie_id')->constrained('movies')->onDelete('cascade');
+            $table->foreignId('cinema_id')->constrained('cinemas')->onDelete('cascade');
+            $table->foreignId('ticket_id')->constrained('tickets')->onDelete('cascade');
+            $table->integer('quantity');
+            $table->integer('total_price');
+            $table->string('payment_status')->default('pending'); // pending, paid, cancelled
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
