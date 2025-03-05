@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->foreignId('cinema_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2);
-            $table->string('type')->default('Thường'); //
+            $table->string('type')->default('Thường'); 
             $table->timestamps();
         });
     }

@@ -28,6 +28,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Đặt vé xem phim (Booking)
     Route::resource('bookings', BookingController::class);
+    Route::delete('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+    Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+
+    Route::get('/bookings/{id}/pay/momo', [BookingController::class, 'payWithMoMo'])->name('bookings.pay.momo');
+    Route::get('/bookings/{id}/pay/vnpay', [BookingController::class, 'payWithVNPAY'])->name('bookings.pay.vnpay');
+
+
+    Route::put('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+    Route::get('/bookings/{id}/payment', [BookingController::class, 'payment'])->name('bookings.payment');
+
 });
 
 // Dashboard dành cho Admin

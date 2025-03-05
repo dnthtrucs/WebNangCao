@@ -39,8 +39,8 @@
                             @endif
                         </td>
                         <td>
-                            @if ($booking->status == 'Đẵ đặt')
-                                <form action="{{ route('bookings.cancel', $booking->id) }}" method="POST">
+                            @if ($booking->status == 'Đã đặt' && !$booking->paid)
+                            <form action="{{ route('bookings.cancel', $booking->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hủy</button>

@@ -76,4 +76,17 @@ class BookingController extends Controller
 
         return redirect()->route('bookings.index')->with('success', 'Đặt vé thành công!');
     }
+    public function cancel($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        if ($booking->status == 'Đã đặt') {
+            $booking->status = 'Đã hủy';
+            $booking->save();
+            
+            return redirect()->route('bookings.index')->with('success', 'Vé đã được hủy thành công!');
+        }
+
+        return redirect()->route('bookings.index')->with('error', 'Không thể hủy vé đã thanh toán.');
+    }
 }
